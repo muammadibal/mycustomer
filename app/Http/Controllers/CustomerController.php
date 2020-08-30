@@ -16,6 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Customer::class);
+
         $customer = Customer::all();
         // return response()->json([
         //     'message' => "List all customers",
@@ -61,6 +63,8 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
+        $this->authorize('viewAny', $customer);
+
         // return response()->json([
         //     'message' => "Show customer",
         //     'data' => $customer,
@@ -89,6 +93,8 @@ class CustomerController extends Controller
      */
     public function update(CustomerRequest $request, Customer $customer)
     {
+        $this->authorize('update', $customer);
+
         $customer->update($request->validated());
 
         // return response()->json([
@@ -107,6 +113,8 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
+        $this->authorize('delete', $customer);
+
         $customer->delete();
 
         return response()->json([
