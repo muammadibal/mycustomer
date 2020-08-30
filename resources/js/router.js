@@ -13,22 +13,27 @@ export default new VueRouter({
         {
             path: "/",
             component: ExampleComponent,
+            meta: {title: 'Welcome'}
         },
         {
             path: "/customers",
             component: CustomersIndex,
+            meta: {title: 'List Customer'}
         },
         {
             path: "/customers/create",
-            component: CustomersCreate
+            component: CustomersCreate,
+            meta: {title: 'Create Customer'}
         },
         {
             path: "/customers/:id",
-            component: CustomersDetail
+            component: CustomersDetail,
+            meta: {title: 'Customer Detail'}
         },
         {
             path: "/customers/:id/edit",
-            component: CustomersEdit
+            component: CustomersEdit,
+            meta: {title: 'Customer Edit'}
         }       
     ],
     mode: 'history'
