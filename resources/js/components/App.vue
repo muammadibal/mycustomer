@@ -6,6 +6,12 @@
         <div class="sidebar-header">
             <h3>Dashboard</h3>
         </div>
+        <div class="user">
+            <div class="user-pic">
+                <img src="img/avatar-garuda.png" alt="" class="img-responsive">
+                <div class="user-title">{{name}}</div>
+            </div>
+        </div>
         
         <ul class="list-unstyled">
           <li :class="{'active' : title === 'Create Customer'}">
@@ -48,6 +54,7 @@ export default {
 
     created() {
         this.title = this.$route.meta.title;
+        this.name = this.user.name;
 
         window.axios.interceptors.request.use(
             (config) => {
@@ -69,12 +76,14 @@ export default {
     data: function() {
         return {
             title: '',
+            name: '',
         }
     },
 
     watch: {
         $route(to, from) {
             this.title = to.meta.title;
+            this.name = this.user.name;
         },
         title() {
             document.title = this.title + ' | myCustomer';

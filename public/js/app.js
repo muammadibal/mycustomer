@@ -1953,6 +1953,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -1964,6 +1970,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this = this;
 
     this.title = this.$route.meta.title;
+    this.name = this.user.name;
     window.axios.interceptors.request.use(function (config) {
       if (config.method === "get") {
         config.url = config.url + '?api_token=' + _this.user.api_token;
@@ -1978,12 +1985,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      title: ''
+      title: '',
+      name: ''
     };
   },
   watch: {
     $route: function $route(to, from) {
       this.title = to.meta.title;
+      this.name = this.user.name;
     },
     title: function title() {
       document.title = this.title + ' | myCustomer';
@@ -2029,14 +2038,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -38072,6 +38073,17 @@ var render = function() {
     _c("nav", { attrs: { id: "sidebar" } }, [
       _vm._m(0),
       _vm._v(" "),
+      _c("div", { staticClass: "user" }, [
+        _c("div", { staticClass: "user-pic" }, [
+          _c("img", {
+            staticClass: "img-responsive",
+            attrs: { src: "img/avatar-garuda.png", alt: "" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-title" }, [_vm._v(_vm._s(_vm.name))])
+        ])
+      ]),
+      _vm._v(" "),
       _c("ul", { staticClass: "list-unstyled" }, [
         _c(
           "li",
@@ -38208,19 +38220,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
+        _c("h1", [_vm._v("Welcome to administrator page")])
       ])
     ])
   }
