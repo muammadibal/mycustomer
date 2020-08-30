@@ -40,7 +40,7 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
-        $customer = Customer::create($request->validated());
+        $customer = $request->user()->customers()->create($request->validated());
 
         return response()->json([
             'message' => "customer was added successfully",

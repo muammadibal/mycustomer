@@ -9,14 +9,13 @@
         
         <ul class="list-unstyled">
           <li>
-              <a href="#"> Add New Customer</a>
+              <router-link to="/customers/create">Add New Customer</router-link>
           </li>
           <li>
               <router-link to="/customers">All Customers</router-link>
           </li>
           <li>
-			<a href="#" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();"> Logout</a>
+			<a href="#"> Logout</a>
             <form id="logout-form" action="" method="POST" style="display: none;">
                 @csrf
             </form>
